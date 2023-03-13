@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import { Card } from "react-bootstrap";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AboutUs from "./Components/AboutUs/AboutUs";
+import AddBlog from "./Components/AddBlog/AddBlog";
+import CardList from "./Components/CardList/CardList";
+import Contacts from "./Components/Contacts/Contacts";
+import Header from "./Components/Header/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path="/card-list" element={<CardList />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/add-blog" element={<AddBlog />} />
+          <Route path="/contacts" element={<Contacts />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
